@@ -1,0 +1,49 @@
+<%- include('includes/head.ejs') %>
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">            
+                    <h2><% edit ? 'Edit Product' : 'Add Product' %></h2>
+                    <form method="POST" action="<%= edit ? '/products/edit' : '/products/add' %>">
+                        <% if(edit) { %>
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                        <% } %>
+                        <p>
+                            <label for="title">Product Name</label>
+                            <input type="text" class="form-control" name='product_name' value="<%= edit ? product.product_name : '' %>"/>
+                        </p>
+                        <p>
+                            <label for="image">Image Url</label>
+                            <input type="text" class="form-control" name='image_url' value="<%= edit ? product.image_url : '' %>"/>
+                        </p>
+                        <p>
+                            <label for="price">Price</label>
+                            <input type="number" step="any" class="form-control" name='price' value="<%= edit ? product.price : '' %>"/>
+                        </p>
+                        <p>
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" class="form-control"><%= edit ? product.description : '' %></textarea>
+                        </p>
+                        <p>
+                            <label for="categoryId">Select Category</label>
+                            <select name="categoryId" class="form-control" id="">
+                                <option value="">Select Category
+                                    <% for(let category of categories) { %>
+                                    <option value="<%= category.id %>"
+                                        <%= edit && category.id == product.categoryId ? "selected" : "" %>>
+                                        <%= category.title %>
+                                    </option>
+                                    <% } %>
+                                </option>
+                            </select>
+                        </p>
+                        <p>
+                            <button><%= edit ? 'Edit Product' : 'Add Product' %></button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+<%- include('includes/footer.ejs') %>
