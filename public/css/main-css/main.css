@@ -513,7 +513,8 @@ h5 {
   top: 0;
   left: 0;
   height: 40px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50px;
   border: 3px solid #f5f5f7;
 }
@@ -906,7 +907,8 @@ h5 {
 .accountingContainer .row2 {
   display: grid;
   grid-template-columns: 45% 45%;
-  column-gap: 5%;
+  -moz-column-gap: 5%;
+       column-gap: 5%;
 }
 
 .accountingContainer .row2-2 {
@@ -919,7 +921,8 @@ h5 {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   padding: 10px 0;
-  column-gap: 4%;
+  -moz-column-gap: 4%;
+       column-gap: 4%;
 }
 
 .center {
